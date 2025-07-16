@@ -37,10 +37,10 @@ function sum_to_n_c(n: number): number {
 
 
 
-// Normal Testing
+// Small number Testing
 const testN = 10000;
 
-// Performance Testing
+// Big number Testing
 // const testN = 200000;
 
 console.log(`--- Measuring Performance for n = ${testN} ---`);
