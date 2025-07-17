@@ -1,24 +1,12 @@
-# Architecture Decision Records (ADR) Index
+# Architecture Decision Records (ADR) 
 
-This directory contains Architecture Decision Records (ADRs) that document the key technical decisions made for the Live Scoreboard System. Each ADR follows a standard format explaining the context, decision, rationale, and consequences of architectural choices.
+This directory documents key technical decisions for the Live Scoreboard System. Each ADR explains the reasoning behind major architectural choices.
 
-## ADR Format
-Each ADR includes:
-- **Status**: Current status (Proposed, Accepted, Deprecated, Superseded)
-- **Date**: When the decision was made
-- **Context**: The situation that led to the need for a decision
-- **Decision**: The specific choice that was made
-- **Rationale**: Why this decision was made
-- **Consequences**: Positive and negative impacts of the decision
-- **Alternatives Considered**: Other options that were evaluated
-
-## Current ADRs
+## Key Decisions
 
 ### [ADR-001: Microservices Architecture](./001-microservices-architecture.md)
-**Status**: Accepted  
-**Summary**: Decision to implement a microservices architecture with separate services for API, Authentication, WebSocket communication, Database, and Redis Cache.
-
-**Key Points**:
+**Decision**: Separate services for API, Auth, WebSocket, Database, and Cache
+**Rationale**: Independent scaling, fault isolation, and technology flexibility
 - Separation of concerns and independent scaling
 - Better fault tolerance and system resilience
 - Technology diversity for optimal tool selection

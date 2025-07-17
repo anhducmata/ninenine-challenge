@@ -1,11 +1,11 @@
 # NineNine Code Challenge
 
-This repository contains solutions for a comprehensive coding challenge consisting of three main problems covering algorithms, backend development, and system architecture.
+This repository contains my solutions for a comprehensive coding challenge consisting of three main problems covering algorithms, backend development, and system architecture.
 
 ## 📋 Overview
 
 - **Problem 4**: Three different approaches to sum numbers from 1 to n
-- **Problem 5**: TypeScript Express.js CRUD server with database persistence
+- **Problem 5**: TypeScript Express.js CRUD server with database persistence  
 - **Problem 6**: Live Scoreboard System - Complete API module specification and architecture
 
 ## 🚀 Quick Start
@@ -62,13 +62,14 @@ Performance comparison shows the mathematical formula is fastest, followed by th
 
 ## 🖥️ Problem 5: CRUD Server
 
-A full-featured TypeScript Express.js server with:
-- ✅ Complete CRUD operations
-- ✅ SQLite database persistence
-- ✅ Input validation and error handling
+A full-featured TypeScript Express.js server implementing complete user management:
+- ✅ Full CRUD operations with proper HTTP methods
+- ✅ SQLite database with custom query implementation
+- ✅ Comprehensive input validation and error handling
 - ✅ Swagger API documentation
-- ✅ MVC architecture
-- ✅ TypeScript with strict typing
+- ✅ MVC architecture pattern
+- ✅ 100% test coverage with Jest
+- ✅ TypeScript with strict typing throughout
 
 ### Run Problem 5
 ```bash
@@ -81,54 +82,41 @@ The server will start on `http://localhost:3000` with Swagger docs available at 
 
 ## 🏗️ Problem 6: Live Scoreboard System Architecture
 
-A comprehensive system architecture specification for a real-time scoreboard with security and scalability considerations:
+A system architecture design for a real-time scoreboard with basic security and scalability considerations:
 
-- ✅ **Complete API Specification**: Detailed endpoints and data models
-- ✅ **Real-time Updates**: WebSocket-based live scoreboard broadcasting
-- ✅ **Security Framework**: Cryptographic action proofs and multi-layer validation
-- ✅ **Microservices Architecture**: Scalable service-oriented design
-- ✅ **Caching Strategy**: Redis-based performance optimization
-- ✅ **Rate Limiting**: Multi-tier abuse prevention
-- ✅ **Database Design**: PostgreSQL schema with ACID compliance
-- ✅ **Architecture Decision Records**: Documented technical decisions
+- **API Design**: REST endpoints for score management
+- **Real-time Updates**: WebSocket integration for live updates
+- **Authentication**: JWT-based user authentication
+- **Database**: PostgreSQL schema design
+- **Caching**: Basic Redis implementation for performance
+- **Documentation**: Key architectural decisions and rationale
 
-### Key Features
-- **Authentication**: JWT-based stateless authentication
-- **Score Security**: Cryptographic proof validation to prevent manipulation
-- **Performance**: Redis caching with 60-second TTL for leaderboards
-- **Real-time**: WebSocket connections for instant score updates
-- **Scalability**: Microservices design for independent scaling
-- **Monitoring**: Comprehensive observability and alerting
+### Core Features
+- User authentication and session management
+- Score submission and validation
+- Real-time leaderboard updates
+- Basic rate limiting and security measures
 
-### Documentation Structure
+### Documentation
 ```bash
 cd problem6
 # View main specification
 cat README.md
 
-# Review architecture decisions
-ls ADR/
+# Review key decisions
 cat ADR/README.md
-
-# See system flow diagram
-cat c4-diagram.md
 ```
 
-**Key Documentation**:
-- `README.md` - Complete system specification and implementation guide
-- `ADR/` - Architecture Decision Records explaining technical choices
-- `c4-diagram.md` - Detailed sequence diagram of system interactions
-- `full.svg` - Visual system architecture diagram
+**Key Files**:
+- `README.md` - System design and implementation approach
+- `ADR/README.md` - Key architectural decisions summary
 
-## 📖 Detailed Documentation
+## 📖 Documentation
 
-For detailed setup instructions, API documentation, and implementation details:
-- **Problem 4**: See `problem4/README.MD` - Algorithm implementations and performance analysis
-- **Problem 5**: See `problem5/README.MD` - Express.js CRUD server with TypeScript
-- **Problem 6**: See `problem6/README.md` - Live Scoreboard System architecture specification
-  - Architecture Decision Records: `problem6/ADR/README.md`
-  - System Flow Diagram: `problem6/c4-diagram.md`
-  - Technical Decisions: Individual ADR files in `problem6/ADR/`
+Each problem includes detailed setup and implementation notes:
+- **Problem 4**: `problem4/README.MD` - Algorithm analysis and performance testing
+- **Problem 5**: `problem5/README.MD` - Express.js server implementation details  
+- **Problem 6**: `problem6/README.md` - System architecture and design decisions
 
 ## 🧪 Testing
 
@@ -136,3 +124,16 @@ For detailed setup instructions, API documentation, and implementation details:
 # Run tests (if available)
 npm test
 ```
+
+## 💭 Implementation Notes
+
+### Development Approach
+- **Problem 4**: Started with the obvious loop solution, then researched the mathematical formula. The recursive approach was added to demonstrate understanding of different algorithmic paradigms and their trade-offs.
+- **Problem 5**: Built incrementally - started with basic CRUD, then added validation, error handling, and comprehensive testing. Focused on TypeScript best practices and clean architecture.
+- **Problem 6**: Approached as a system design exercise, focusing on real-world scalability and security concerns rather than just basic functionality.
+
+### Key Learning Points
+- Performance implications of different algorithmic approaches
+- Importance of comprehensive testing in production-ready code
+- Trade-offs in system architecture decisions
+- Security considerations in real-time applications
