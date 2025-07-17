@@ -196,7 +196,7 @@ def get_adaptive_limits(user_id):
 GEOGRAPHIC_MULTIPLIERS = {
     "US": 1.0,
     "EU": 1.0,
-    "APAC": 0.8,  # Adjust for different usage patterns
+    "APAC": 0.8,
     "OTHER": 0.6
 }
 ```

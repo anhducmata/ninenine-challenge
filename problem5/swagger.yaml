@@ -1,0 +1,256 @@
+openapi: 3.0.0
+info:
+  title: User Management API
+  version: 1.0.0
+  description: A simple CRUD API for user management
+  contact:
+    name: API Support
+    email: support@userapi.com
+
+servers:
+  - url: http://localhost:3000
+    description: Development server
+
+tags:
+  - name: Users
+    description: User management operations
+
+paths:
+  /users:
+    post:
+      summary: Create a new user
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInput'
+            examples:
+              example1:
+                value:
+                  name: "John Doe"
+                  email: "mata@example.com"
+                  age: 30
+      responses:
+        '201':
+          description: User created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                example1:
+                  value:
+                    id: 1
+                    name: "John Doe"
+                    email: "mata@example.com"
+                    age: 30
+        '400':
+          description: Bad request - Email already exists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example1:
+                  value:
+                    error: "Email already exists"
+
+    get:
+      summary: Get all users
+      tags:
+        - Users
+      responses:
+        '200':
+          description: List of all users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+              examples:
+                example1:
+                  value:
+                    - id: 1
+                      name: "John Doe"
+                      email: "mata@example.com"
+                      age: 30
+                    - id: 2
+                      name: "Jane Smith"
+                      email: "jane.smith@example.com"
+                      age: 25
+
+  /users/{id}:
+    get:
+      summary: Get a user by ID
+      tags:
+        - Users
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: User ID
+          example: 1
+      responses:
+        '200':
+          description: User found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                example1:
+                  value:
+                    id: 1
+                    name: "John Doe"
+                    email: "mata@example.com"
+                    age: 30
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example1:
+                  value:
+                    error: "User not found"
+
+    put:
+      summary: Update a user by ID
+      tags:
+        - Users
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: User ID
+          example: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInput'
+            examples:
+              example1:
+                value:
+                  name: "John Updated"
+                  email: "john.updated@example.com"
+                  age: 31
+      responses:
+        '200':
+          description: User updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+              examples:
+                example1:
+                  value:
+                    id: 1
+                    name: "John Updated"
+                    email: "john.updated@example.com"
+                    age: 31
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example1:
+                  value:
+                    error: "User not found"
+
+    delete:
+      summary: Delete a user by ID
+      tags:
+        - Users
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: User ID
+          example: 1
+      responses:
+        '204':
+          description: User deleted successfully
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example1:
+                  value:
+                    error: "User not found"
+
+components:
+  schemas:
+    User:
+      type: object
+      required:
+        - id
+        - name
+        - email
+        - age
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the user
+          example: 1
+        name:
+          type: string
+          description: Name of the user
+          example: "John Doe"
+        email:
+          type: string
+          format: email
+          description: Email address of the user
+          example: "mata@example.com"
+        age:
+          type: integer
+          minimum: 0
+          description: Age of the user
+          example: 30
+
+    UserInput:
+      type: object
+      required:
+        - name
+        - email
+        - age
+      properties:
+        name:
+          type: string
+          description: Name of the user
+          example: "John Doe"
+        email:
+          type: string
+          format: email
+          description: Email address of the user
+          example: "mata@example.com"
+        age:
+          type: integer
+          minimum: 0
+          description: Age of the user
+          example: 30
+
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+          example: "User not found"
